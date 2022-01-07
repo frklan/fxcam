@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "RelWithDebInfo with UB santizer",
+      "description": "RelWithDebInfo with UB santizer",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "ENABLE_FUZZING": "OFF",
+        "ENABLE_TESTING": "OFF",
+        "WARNINGS_AS_ERRORS": "OFF",
+        "ENABLE_DOXYGEN": "OFF",
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "ENABLE_CPPCHECK": "OFF",
+        "ENABLE_CLANG_TIDY": "ON",
+        "ENABLE_INCLUDE_WHAT_YOU_USE": "OFF",
+        "ENABLE_SANITIZER_UNDEFINED_BEHAVIOR": "ON",
+        "ENABLE_SANITIZER_THREAD": "OFF",
+        "ENABLE_SANITIZER_ADDRESS": "OFF",
+        "ENABLE_SANITIZER_LEAK": "OFF",
+        "ENABLE_SANITIZER_MEMORY": "OFF",
+        "ENABLE_IPO": "OFF",
+        "ENABLE_CACHE": "ON",
+        "ENABLE_BUILD_WITH_TIME_TRACE": "ON"
+      }
+      
+    }, {
+      "name": "address",
+      "inherits": "default",
+      "displayName": "RelWithDebInfo build with address, leak sanitizer",
+      "description": "RelWithDebInfo build with address, leak sanitizer",
+      "cacheVariables": {
+        "ENABLE_SANITIZER_ADDRESS": "ON",
+        "ENABLE_SANITIZER_LEAK": "ON"
+      }
+    }, {
+      "name": "memory",
+      "inherits": "default",
+      "displayName": "RelWithDebInfo build with memory sanitizer",
+      "description": "RelWithDebInfo build with memory sanitizer",
+      "cacheVariables": {
+        "ENABLE_SANITIZER_MEMORY": "ON"
+      }
+    }, {
+      "name": "thread",
+      "inherits": "default",
+      "displayName": "RelWithDebInfo build with thread sanitizer",
+      "description": "RelWithDebInfo build with thread sanitizer",
+      "cacheVariables": {
+        "ENABLE_SANITIZER_THREAD": "ON"
+      }
+    }, {
+      "name": "release",
+      "inherits": "default",
+      "displayName": "Release build with LTO",
+      "description": "Release build with LTO",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "ENABLE_SANITIZER_UNDEFINED_BEHAVIOR:BOOL": "OFF",
+        "ENABLE_IPO": "ON"
+      }
+    }
+  ]
+}

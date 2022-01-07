@@ -1,0 +1,6 @@
+# disable all but some "fake" checks to silence a lot of noice from dependencies..
+---
+Checks: '-clang-analyzer-*,clang-analyzer-apiModeling.google.GTest'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+FormatStyle: none

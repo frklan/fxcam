@@ -1,0 +1,7 @@
+---
+Checks: '*,-fuchsia-*,-google-*,-zircon-*,-abseil-*,-modernize-use-trailing-return-type,-llvm*,-altera*,-hicpp-signed-bitwise,-cppcoreguidelines-pro-type-vararg,-hicpp-vararg'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+FormatStyle: none
+
+
